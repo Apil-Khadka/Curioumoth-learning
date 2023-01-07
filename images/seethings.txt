@@ -1,0 +1,9 @@
+sudo hciconfig
+sudo hciconfig up
+lsusb
+sudo hcitool scan 
+sudo hcitool inq
+signils.com
+spooftooph
+inurl: /portal/portal
+mimikats
