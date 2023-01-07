@@ -1,0 +1,97 @@
+
+head{
+color:purple;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+h1{
+    text-align: center;
+    color: green;
+	font-size: 28px;
+	font-family: cursive;
+	
+}
+p{
+ color:black;
+ font-family:castellar;
+ text-align: center;
+ 
+}
+
+.myDiv {
+  border: 5px outset red;
+  background-color: lightblue;
+  text-align:initial;
+  width:8cm;
+}
+.city{
+     text-align: center;
+     border: 100cm;
+     }
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+    }
+    .fill img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100;
+	}
+  .form_my{
+    width:50%
+    margin: 0 auto;
+    align:centre;
+
+  }
+  form {
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: 1em;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+  input[type="text"],
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5em;
+    font-size: 16px;
+  }
+  select {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5em;
+    font-size: 16px;
+  }
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 0 0.5em;
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5em;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  

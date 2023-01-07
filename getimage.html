@@ -1,0 +1,52 @@
+<html>
+    <body>
+        <form>
+            <label for="photo-link">Enter the online address of the photo:</label><br>
+            <input type="text" id="photo-link" name="photo-link"><br>
+            <button type="button" onclick="displayPhoto()">Display Photo</button>
+          </form> 
+          
+          <br>
+          
+          <div id="photo-container">
+            <a id="download-link" download>Download</a>
+          </div>
+          
+          <script>
+            // Check if there is a stored photo link in local storage
+            if (localStorage.getItem("photoLink")) {
+              // If there is, display the photo
+              displayStoredPhoto();
+            }
+          
+            function displayPhoto() {
+              // Get the value of the photo link input field
+              var photoLink = document.getElementById("photo-link").value;
+          
+              // Store the photo link in local storage
+              localStorage.setItem("photoLink", photoLink);
+          
+              // Display the photo
+              displayStoredPhoto();
+            }
+          
+            function displayStoredPhoto() {
+              // Get the stored photo link from local storage
+              var photoLink = localStorage.getItem("photoLink");
+          
+              // Create an <img> element with the photo link as the src
+              var imgElement = document.createElement("img");
+              imgElement.src = photoLink;
+          
+              // Update the download link's href and text
+              document.getElementById("download-link").href = photoLink;
+              document.getElementById("download-link").text = "Download " + photoLink.split("/").pop();
+          
+              // Append the <img> element to the photo container div
+              document.getElementById("photo-container").appendChild(imgElement);
+            }
+          </script>
+          
+      </body>
+</html>
+      

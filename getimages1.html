@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form>
+            <label for="photo-link">Enter the online address of the photo:</label><br>
+            <input type="text" id="photo-link" name="photo-link"><br>
+            <button type="button" onclick="displayPhoto()">Display Photo</button>
+          </form> 
+          
+          <br>
+          
+          <div id="photo-container">
+            <a id="download-link" download>Download</a>
+          </div>
+          
+          <script>
+            // Check if the FileSystem API is supported
+            if (window.requestFileSystem) {
+              // Request access to the file system
+              window.requestFileSystem(window.PERSISTENT, 1024*1024, function(fs) {
+                // Create a folder named "images_online" in the file system
+                fs.root.getDirectory("images_online", {create: true}, function(dirEntry) {
+                  console.log("Created folder: " + dirEntry.name);
+                }, onError);
+              }, onError);
+            }
+          
+            function displayPhoto() {
+              // Get the value of the photo link input field
+              var photoLink = document.getElementById("photo-link").value;
+          
+              // Download the photo and save it in the "images_online" folder
+              downloadAndSavePhoto(photoLink, "images_online");
+            }
+            function downloadAndSavePhoto(photoLink, folder) {
+                 // Check if the FileSystem API is supported
+               if (window.requestFileSystem) {
+             // Request access to the file system
+             window.requestFileSystem(window.PERSISTENT, 1024*1024, function(fs) {
+             // Create a file writer for the photo
+              fs.root.getFile(folder + "/" + photoLink.split("/").pop(), {create: true}, function(fileEntry) {
+              fileEntry.createWriter(function(fileWriter) {
+              // Create a new Blob to hold the photo data
+             var xhr = new XMLHttpRequest();
+             xhr.responseType = 'blob';
+             xhr.onload = function(event) {
+              var blob = xhr.response;
+ 
+             fileWriter.write(blob);
+  
+              // When the file has been saved, display it
+               fileWriter.onwriteend = function() {
+              console.log("Photo saved: " + fileEntry.fullPath);
+              displayStoredPhoto(fileEntry.toURL());
+               };
+               };
+               xhr.open('GET', photoLink);
+              xhr.send();
+              }, onError);
+              }, onError);
+                }, onError);
+              }
+            }
+             function displayStoredPhoto(photoUrl) {
+              // Create an <img> element with the photo URL as the src
+             var imgElement = document.createElement("img");
+             imgElement.src = photoUrl;
+
+              // Update the download link's href and text
+               document.getElementById("download-link").href = photoUrl;
+             document.getElementById("download-link").text = "Download " + photoUrl.split("/").pop();
+
+                // Append the <img> element to the photo container div
+                   document.getElementById("photo-container").appendChild(imgElement);
+                }
+                function onError(error) {
+                 console.error("Error: " + error.code);
+                 }
+        </script>
+
+
+
+        
+          
+
+          
+    </body>
+</html>
