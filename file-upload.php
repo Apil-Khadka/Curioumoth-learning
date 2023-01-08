@@ -25,10 +25,10 @@
                 "status" => "alert-danger",
                 "message" => "Allowed file formats .jpg, .jpeg and .png."
             );            
-        } else if ($_FILES["fileUpload"]["size"] > 20971520000000) {
+        } else if ($_FILES["fileUpload"]["size"] > 5000000000) {
             $resMessage = array(
                 "status" => "alert-danger",
-                "message" => "File is too large. File size should be less than 2 megabytes."
+                "message" => "File is too large. File size should be less than 5 gigabytes."
             );
         } else if (file_exists($target_file)) {
             $resMessage = array(
