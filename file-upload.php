@@ -11,7 +11,7 @@
         // Get file extension
         $imageExt = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         // Allowed file types
-        $allowd_file_ext = array("jpg", "jpeg", "png", "txt");
+        $allowd_file_ext = array("jpg", "jpeg", "png");
 
 	//$sql = "INSERT IGNORE INTO $table (name,dir) VALUES('$name','$img_dir')";
 
