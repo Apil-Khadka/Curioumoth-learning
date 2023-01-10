@@ -1,4 +1,7 @@
-<?php include("fol-upload.php") ?>
+<?php include("fol-upload.php"); 
+global $resMessage;
+?>
+
 
 <!doctype html>
 <html lang="en">
@@ -31,35 +34,17 @@
         Upload
       </button>
     </form>
-
+   
     <!-- Display response messages -->
     <?php if(!empty($resMessage)) {?>
-    <div class="alert <?php echo $resMessage['status']?>">
+    <div class="alert
+     <?php echo $resMessage['status']?>">
       <?php echo $resMessage['message']?>
     </div>
     <?php }?>
+
   </div>
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-
-  <script>
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-          $('#imgPlaceholder').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]); // convert to base64 string
-      }
-    }
-
-    $("#chooseFile").change(function () {
-      readURL(this);
-    });
-  </script>
+  
   <script>
     function displaySelectedFile(inputId) {
       var input = document.getElementById(inputId);
@@ -76,4 +61,4 @@
     });
   </script>
 </body>
-</html>  
+</html>
