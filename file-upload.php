@@ -1,58 +1,79 @@
-<?php 
+<?php include("fol-upload.php") ?>
 
-    // Database connection
-    include("config/database.php");
-    
-    if(isset($_POST["submit"])) {
-        // Set image placement folder
-        $target_dir = "images/";
-        // Get file path
-        $target_file = $target_dir . basename($_FILES["fileUpload"]["name"]);
-        // Get file extension
-        $imageExt = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        // Allowed file types
-        $allowd_file_ext = array("jpg", "jpeg", "zip", "png", "txt");
+<!doctype html>
+<html lang="en">
 
-	//$sql = "INSERT IGNORE INTO $table (name,dir) VALUES('$name','$img_dir')";
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="style.css">
 
-        if (!file_exists($_FILES["fileUpload"]["tmp_name"])) {
-           $resMessage = array(
-               "status" => "alert-danger",
-               "message" => "Select image to upload."
-           );
-        } else if (!in_array($imageExt, $allowd_file_ext)) {
-            $resMessage = array(
-                "status" => "alert-danger",
-                "message" => "Allowed file formats .jpg, .jpeg and .png."
-            );            
-        } else if ($_FILES["fileUpload"]["size"] > 5000000000) {
-            $resMessage = array(
-                "status" => "alert-danger",
-                "message" => "File is too large. File size should be less than 5 gigabytes."
-            );
-        } else if (file_exists($target_file)) {
-            $resMessage = array(
-                "status" => "alert-danger",
-                "message" => "File already exists."
-            );
-        } else {
-            if (move_uploaded_file($_FILES["fileUpload"]["tmp_name"], $target_file)) {
-                $sql = "INSERT INTO school (img_dir) VALUES ('$target_file')";
-                $stmt = $conn->prepare($sql);
-                 if($stmt->execute()){
-                    $resMessage = array(
-                        "status" => "alert-success",
-                        "message" => "Image uploaded successfully."
-                    );                 
-                 }
-            } else {
-                $resMessage = array(
-                    "status" => "alert-danger",
-                    "message" => "Image coudn't be uploaded."
-                );
-            }
+  <title>Upload Files & Folders</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <form action="" method="post" enctype="multipart/form-data" class="mb-3">
+      <h3 class="text">Upload file & folder</h3>
+
+      <div class="custom-file">
+        <input type="file" name="fileUpload" class="custom" id="chooseFile">
+        <label class="custom" for="chooseFile">Select file</label>
+      </div>
+
+      <div class="custom-file">
+        <input type="file" name="folderUpload" class="custom" id="chooseFolder" webkitdirectory directory >
+        <label class="custom" for="chooseFolder">Select folder</label>
+      </div>
+
+      <button type="submit" name="submit" class="but0n">
+        Upload
+      </button>
+    </form>
+
+    <!-- Display response messages -->
+    <?php if(!empty($resMessage)) {?>
+    <div class="alert <?php echo $resMessage['status']?>">
+      <?php echo $resMessage['message']?>
+    </div>
+    <?php }?>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+  <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#imgPlaceholder').attr('src', e.target.result);
         }
 
+        reader.readAsDataURL(input.files[0]); // convert to base64 string
+      }
     }
 
-?>
+    $("#chooseFile").change(function () {
+      readURL(this);
+    });
+  </script>
+  <script>
+    function displaySelectedFile(inputId) {
+      var input = document.getElementById(inputId);
+      var selectedFile = input.value;
+      alert(selectedFile);
+    }
+  
+    document.getElementById('chooseFile').addEventListener('change', function() {
+      displaySelectedFile('chooseFile');
+    });
+  
+    document.getElementById('chooseFolder').addEventListener('change', function() {
+      displaySelectedFile('chooseFolder');
+    });
+  </script>
+</body>
+</html>  

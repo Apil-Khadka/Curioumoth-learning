@@ -1,0 +1,25 @@
+What is the relationship between mass, force, and acceleration according to Newton's second law of motion? How do you use this relationship to solve problems involving motion?
+How does the concept of energy apply to mechanical systems? How do you calculate the kinetic energy, potential energy, and total energy of an object in motion?
+What is the nature of light and how does it interact with matter? How do you use the laws of reflection and refraction to understand the behavior of light waves?
+What is the nature of electricity and how does it flow through a circuit? How do you use Ohm's law and Kirchhoff's laws to analyze electrical circuits?
+What is the nature of magnetism and how does it relate to electric currents? How do you use the right-hand rule and the Biot-Savart law to understand the behavior of magnetic fields?
+What are the fundamental principles of thermodynamics and how do you apply them to solve problems involving heat and work?
+How do you use the principles of wave motion to understand the behavior of sound and light waves? How do you use the concepts of frequency, wavelength, and amplitude to describe and analyze waves?
+How do you use the laws of gravitation to understand the behavior of objects in the presence of a gravitational field? How do you use the concept of escape velocity to understand the motion of objects in space?
+What is the nature of the atomic nucleus and how do nuclear reactions release energy? How do you use the concept of radioactivity to understand the decay of radioactive isotopes?
+How do you use the principles of quantum mechanics to understand the behavior of subatomic particles? How do you use the Schrödinger equation to solve problems involving quantum states?
+
+
+
+
+
+A wire has a resistance of 8 Ω and is connected to a 9 V battery. What is the current flowing through the wire?
+A parallel circuit has three resistors with values of 6 Ω, 8 Ω, and 12 Ω. What is the equivalent resistance of the circuit?
+A current of 0.5 A flows through a wire with a resistance of 20 Ω. What is the voltage across the wire?
+A series circuit has a voltage of 120 V and three resistors with values of 20 Ω, 30 Ω, and 40 Ω. What is the current flowing through the circuit?
+A bar magnet has a north pole and a south pole. What is the direction of the magnetic field lines around the north pole?
+A current of 1 A flows through a wire that is perpendicular to a uniform magnetic field of strength 0.2 T. What is the force acting on the wire?
+A bar magnet is placed near a loop of wire. What is the direction of the induced current in the loop if the magnet is moved towards the loop?
+A solenoid has 500 turns of wire and a current of 0.5 A flowing through it. What is the strength of the magnetic field inside the solenoid?
+A charged particle moves through a uniform magnetic field with a velocity of 10 m/s. What is the force acting on the particle if it has a charge of 5 C and the field strength is 0.2 T?
+A transformer has a primary coil with 500 turns and a secondary coil with 1000 turns. What is the voltage ratio between the primary and secondary coils if the current in the primary coil is 1 A?
