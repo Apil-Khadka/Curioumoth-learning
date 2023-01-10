@@ -40,6 +40,8 @@ try {
             "status" => "alert-success",
             "message" => "Record saved successfully."
         );
+        header("Location: thanks.html");
+        exit;
     }  else {
       $resMessage = array(
           "status" => "alert-danger",
@@ -54,15 +56,6 @@ try {
 }
 
 echo json_encode($resMessage);
-
-if ($stmt->execute()) {
-  // Form submission was successful, redirect to previous page
-  header("Location: thanks.html");
-  exit;
-} else {
-  // Form submission failed, display an error message
-  echo "Error saving record: " . $stmt->$error;
-}
 
 
 
